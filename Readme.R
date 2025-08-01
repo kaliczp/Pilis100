@@ -11,11 +11,12 @@ library(terra)
 ers <- rast("DTM.ers")
 plot(ers)
 ## Correct missing coordsystem
-crs(ers) <- "epsg:23700"
+terra::crs(ers) <- "epsg:23700" # Csak terrával!
 plot_dtm3d(ers)
 
 ## DTM from las
 pilis100dtm <- rasterize_canopy(las, res = 0.5)
+terra::crs(pilis100dtm) <- "epsg:23700"
 plot(pilis100dtm)
 plot_dtm3d(pilis100dtm)
 
