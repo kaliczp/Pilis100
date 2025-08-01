@@ -32,3 +32,6 @@ p100mask <- focal(p100ers,w=3, mean, na.pol = "only", na.rm = TRUE)
 writeRaster(p100mask, "focal.ers", filetype = "ERS")
 p100fillm <- mask(p100fill, p100mask)
 writeRaster(p100fillm, "TIN.ers", filetype = "ERS")
+## Poly mask creation
+p100poly <- as.polygons(p100ers)
+hullmask <- hull(p100poly, type="concave_ratio")
