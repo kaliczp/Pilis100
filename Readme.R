@@ -13,3 +13,8 @@ plot(ers)
 ## Correct missing coordsystem
 crs(ers) <- "epsg:23700"
 plot_dtm3d(ers)
+
+## DTM from las
+pilis100dtm <- rasterize_canopy(las, res = 0.5)
+plot(pilis100dtm)
+plot_dtm3d(pilis100dtm)
