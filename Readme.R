@@ -20,7 +20,10 @@ terra::crs(pilis100dtm) <- "epsg:23700"
 plot(pilis100dtm)
 plot_dtm3d(pilis100dtm)
 
-# Write ERS
+## Write ERS
 writeRaster(pilis100dtm, "pilis100dtm.ers", filetype = "ERS", overwrite = TRUE)
 rm(pilis100dtm) # free up memory
 p100ers <- rast("pilis100dtm.ers")
+
+## Filled raster
+p100fill <- rasterize_canopy(las, res = 0.5, algorithm = p2r(subcircle = 0.2, na.fill = tin()))
