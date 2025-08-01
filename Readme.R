@@ -21,4 +21,6 @@ plot(pilis100dtm)
 plot_dtm3d(pilis100dtm)
 
 # Write ERS
-writeRaster(pilis100dtm, "pilis100dtm.ers", filetype = "ERS")
+writeRaster(pilis100dtm, "pilis100dtm.ers", filetype = "ERS", overwrite = TRUE)
+rm(pilis100dtm) # free up memory
+p100ers <- rast("pilis100dtm.ers")
