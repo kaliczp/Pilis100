@@ -18,3 +18,6 @@ plot_dtm3d(ers)
 pilis100dtm <- rasterize_canopy(las, res = 0.5)
 plot(pilis100dtm)
 plot_dtm3d(pilis100dtm)
+
+# Write ERS
+writeRaster(pilis100dtm, "pilis100dtm.ers", filetype = "ERS")
