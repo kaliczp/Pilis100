@@ -1,6 +1,6 @@
 ## Read las
 library(lidR)
-las <- readLAS("Ground_points.las")
+las <- readLAS("Ground_points.laz")
 plot(las)
 
 install.packages('lasR', repos = 'https://r-lidar.r-universe.dev')
