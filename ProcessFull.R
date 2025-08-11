@@ -6,3 +6,7 @@ las <- classify_ground(las, algorithm = csf())
 mycsf <- csf(sloop_smooth = TRUE, class_threshold = 0.4, cloth_resolution = 0.8, time_step = 0.9)
 las <- classify_ground(las, mycsf)
 gnd <- filter_ground(las)
+## mcc
+las <- classify_ground(las, mcc(1.5,0.3))
+gnd <- filter_ground(las)
+

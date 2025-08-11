@@ -10,6 +10,9 @@ install.packages('lidRviewer', repos = c('https://r-lidar.r-universe.dev'))
 library(lidRviewer)
 view(las)
 
+## For mcc() RMCC
+install.packages("RMCC")
+
 ## Read ERS
 library(terra)
 ers <- rast("DTM.ers")
