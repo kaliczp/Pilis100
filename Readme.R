@@ -8,6 +8,7 @@ library(lasR)
 
 install.packages('lidRviewer', repos = c('https://r-lidar.r-universe.dev'))
 library(lidRviewer)
+view(las)
 
 ## Read ERS
 library(terra)
