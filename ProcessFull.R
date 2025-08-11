@@ -1,2 +1,2 @@
 library(lidR)
-las <- readLAS("41.las")
+las <- readLAS("41.laz")
