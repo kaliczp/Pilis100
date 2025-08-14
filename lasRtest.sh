@@ -3,8 +3,8 @@
 #SBATCH --time=00:02:00
 #SBATCH --cpus-per-task=6
 #SBATCH --mem-per-cpu=2000
-#SBATCH --error=lazsave.%J.stderr
-#SBATCH --output=lazsave.%J.stdout
+#SBATCH --error=lasRtest.%J.stderr
+#SBATCH --output=lasRtest.%J.stdout
 
 module list
 module load cmake cray-python cray-parallel-netcdf
