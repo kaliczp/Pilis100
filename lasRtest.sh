@@ -19,6 +19,7 @@ PKG_CONFIG_PATH=/project/p_erdlidar/local/lib64/pkgconfig:/project/p_erdlidar/lo
 export PKG_CONFIG_PATH
 echo $PATH
 TMPDIR=/project/p_erdlidar_scratch
+export $TMPDIR
 # Run script
 cd /scratch/p_erdlidar/Pilis100
 Rscript ./lasRtest.R
