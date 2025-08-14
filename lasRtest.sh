@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name="laz save"
-#SBATCH --time=00:02:00
+#SBATCH --time=00:04:00
 #SBATCH --cpus-per-task=6
 #SBATCH --mem-per-cpu=2000
 #SBATCH --error=lasRtest.%J.stderr
