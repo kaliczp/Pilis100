@@ -42,3 +42,5 @@ writeRaster(p100fillm, "TIN.ers", filetype = "ERS")
 ## Poly mask creation
 p100poly <- as.polygons(p100ers)
 hullmask <- hull(p100poly, type="concave_ratio")
+
+las1 <- clip_circle(las, 640260, 258590, 10)
