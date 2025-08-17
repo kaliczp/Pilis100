@@ -49,9 +49,12 @@ dtm_tin <- rasterize_terrain(las, res = 1, algorithm = tin())
 library(terra)
 aspect <- terrain(dtm_tin, "aspect", unit = "radians")
 slope <- terrain(dtm_tin, "slope", unit = "radians")
-hillshade <- shade(slope, aspect, 40, 270)
+hillshade <- shade(slope, aspect, 45, 304)
 plot(hillshade)
+## With grey
+plot(hillshade,col = grey(c(0:100)/100), legend = F, maxcell = Inf)
 writeRaster(dtm_tin,"dem.ers", filetype = "ERS")
+plot_dtm3d(dtm_tin)
 
 las1 <- clip_circle(las, 640260, 258590, 10)
 trans1 <- clip_transect(las1, c(640260,258580), c(640260,258600), 1)
