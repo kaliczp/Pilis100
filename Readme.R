@@ -49,7 +49,7 @@ dtm_tin <- rasterize_terrain(las, res = 1, algorithm = tin())
 library(terra)
 aspect <- terrain(dtm_tin, "aspect", unit = "radians")
 slope <- terrain(dtm_tin, "slope", unit = "radians")
-hillshade <- shade(slope, aspect)
+hillshade <- shade(slope, aspect, 40, 270)
 plot(hillshade)
 writeRaster(dtm_tin,"dem.ers", filetype = "ERS")
 
