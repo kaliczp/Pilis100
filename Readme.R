@@ -58,3 +58,13 @@ plot_dtm3d(dtm_tin)
 
 las1 <- clip_circle(las, 640260, 258590, 10)
 trans1 <- clip_transect(las1, c(640260,258580), c(640260,258600), 1)
+
+## Catalog
+ActFile <- 41
+ctg <- readLAScatalog(paste0(ActFile,".laz"), select = "xyzrn")
+## Make spatial index
+lidR:::catalog_laxindex(ctg)
+opt_chunk_size(ctg) <- 90  # Define chunk size
+opt_chunk_buffer(ctg) <- 30
+opt_filter(ctg) <- "-drop_z_below 0"  # Exclude points with Z values below 0
+opt_output_files(ctg) <- "./tile_{XLEFT}_{YBOTTOM}"  # Define output
