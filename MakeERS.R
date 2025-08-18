@@ -7,7 +7,7 @@ ActFile <- "41"
 ## load packages
 library(lidR)
 library(future)
-plan(multissesion, workers = 5L)
+plan(multicore, workers = 5L)
 ## Read catalog
 ctg <- readLAScatalog(paste0(ActFile,".laz"), select = "xyzrn")
 ## Make spatial index
