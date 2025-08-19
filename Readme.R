@@ -68,3 +68,7 @@ opt_chunk_size(ctg) <- 90  # Define chunk size
 opt_chunk_buffer(ctg) <- 30
 opt_filter(ctg) <- "-drop_z_below 0"  # Exclude points with Z values below 0
 opt_output_files(ctg) <- "./tile_{XLEFT}_{YBOTTOM}"  # Define output
+
+## Watch together
+p43 <- plot(las, size = 3, color = "RGB")
+add_dtm3d(p43, dtm_tin)
