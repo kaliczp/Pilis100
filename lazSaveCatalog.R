@@ -1,5 +1,5 @@
 cat("Start script\n")
-nothreads <- 10L
+nothreads <- 6L
 library(lidR)
 library(future)
 plan(multicore, workers = nothreads)
