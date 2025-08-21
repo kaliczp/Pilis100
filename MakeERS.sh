@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name="Make ERS"
-#SBATCH --time=00:10:00
-#SBATCH --cpus-per-task=6
+#SBATCH --time=00:13:00
+#SBATCH --cpus-per-task=10
 #SBATCH --mem-per-cpu=2000
 #SBATCH --error=MakeERS.%J.stderr
 #SBATCH --output=MakeERS.%J.stdout
