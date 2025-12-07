@@ -1,10 +1,8 @@
 library(lasR)
-Path <- "/data"
+library(lidR)
+Path <- "/home/kaliczp/mnt/disk/Munka/2022DINPIBörzsöny/Adatok/LiDAR_adat/Nyers_pontfelho_UTM34"
 FileName <- "RAW_LiDAR_01.las"
 f <- paste(Path, FileName, sep = "/")
-read <- reader()
-tri <- triangulate(20, filter = keep_ground())
-contour <- hulls(tri)
-pipeline <- read + tri + contour
-ans <- exec(pipeline, on = f)
-plot(ans)
+las <- readLAS(f)
+bboxpoints <- st_bbox(las)
+bboxarea <- st_as_sfc(area)
