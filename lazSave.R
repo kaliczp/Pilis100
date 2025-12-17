@@ -3,7 +3,10 @@ library(lidR)
 set_lidr_threads(3)
 cat("Configured lidR threads: ")
 get_lidr_threads()
-lasname <- "33"
-las <- readLAS(paste0(lasname, ".las"))
-writeLAS(las, paste0(lasname, ".laz"))
+lasnameall <- dir(patt="las$")
+for(lasname in lasnameall){
+    las <- readLAS(paste0(lasname))
+    lazname <- gsub(".las", ".laz", lasname)
+    writeLAS(las, paste0(lazname))
+}
 cat("End script.\n")
