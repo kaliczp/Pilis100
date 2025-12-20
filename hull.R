@@ -6,7 +6,7 @@ allFiles <- dir(Path, pattern = "laz$")
 
 for(FileName in allFiles) {
     f <- paste(Path, FileName, sep = "/")
-    las <- readLAS(f)
+    las <- readLAS(f, select = "xy")
     bboxpoints <- st_bbox(las)
     bboxarea <- st_sf(data.frame(FileNr = substr(FileName, 11, 12),
                                  geom = st_as_sfc(bboxpoints)))
