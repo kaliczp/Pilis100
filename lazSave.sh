@@ -6,9 +6,8 @@
 #SBATCH --error=lazsave.%J.stderr
 #SBATCH --output=lazsave.%J.stdout
 
-module list
 module load cmake cray-python cray-parallel-netcdf
-module list
+# module list
 
 # Set $PATH
 PATH=/project/p_erdlidar/local/bin:$PATH
@@ -17,8 +16,8 @@ LD_LIBRARY_PATH=/project/p_erdlidar/local/lib64:/project/p_erdlidar/local/lib:$L
 export LD_LIBRARY_PATH
 PKG_CONFIG_PATH=/project/p_erdlidar/local/lib64/pkgconfig:/project/p_erdlidar/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export PKG_CONFIG_PATH
-echo $PATH
+# echo $PATH
 
 # Run script
-cd /project/p_erdlidar/Pilis100
-Rscript ./lazSave.R
+cd /scratch/p_erdlidar/Pilis100
+LC_ALL=C.UTF-8 Rscript ./lazSave.R

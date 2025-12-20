@@ -5,6 +5,7 @@ cat("Configured lidR threads: ")
 get_lidr_threads()
 lasnameall <- dir(patt="las$")
 for(lasname in lasnameall){
+    cat("Procesing:", lasname,"\n")
     las <- readLAS(paste0(lasname))
     lazname <- gsub(".las", ".laz", lasname)
     writeLAS(las, paste0(lazname))
