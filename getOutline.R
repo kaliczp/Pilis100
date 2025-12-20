@@ -1,5 +1,6 @@
 cat("Start script\n")
 library(lidR)
+library(terra)
 set_lidr_threads(3)
 cat("Configured lidR threads: ")
 get_lidr_threads()
@@ -12,6 +13,7 @@ for(lasname in lazNameAll){
     reclass_m <- matrix(reclass, ncol = 3, byrow = TRUE)
     densClass <- terra::classify(density, reclass_m)
     densClass[densClass == 0] <- NA
+    terra::crs(densClass) <- "epsg:23700"
     lasVect <- as.polygons(densClass)
     lassf <- sf::st_as_sf(lasVect)
     lassf[,"ID"] <- paste0("O", lasNum)
