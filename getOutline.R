@@ -5,9 +5,9 @@ set_lidr_threads(3)
 cat("Configured lidR threads: ")
 get_lidr_threads()
 lazNameAll <- dir(patt="laz$")
-for(lasname in lazNameAll){
-    lasNum <- substr(lasname,11,12)
-    las <- readLAS(paste0(lasname))
+for(lazNameCurr in lazNameAll){
+    lasNameOnly <- gsub(".laz", "", lazNameCurr)
+    las <- readLAS(lazNameCurr, select = "xyz")
     density <- rasterize_density(las, res = 10)
     reclass <- c(0, Inf, 1)
     reclass_m <- matrix(reclass, ncol = 3, byrow = TRUE)
@@ -16,6 +16,11 @@ for(lasname in lazNameAll){
     terra::crs(densClass) <- "epsg:23700"
     lasVect <- as.polygons(densClass)
     lassf <- sf::st_as_sf(lasVect)
-    lassf[,"ID"] <- paste0("O", lasNum)
+    lassf[,"ID"] <- lasNameOnly
+    if(lazNameCurr == lazNameAll[1]) {
+        lazOutlines <- lassf["ID"]
+    } else {
+        lazOutlines <- rbind(lazOutlines,lassf["ID"])
+    }
 }
 cat("End script.\n")
