@@ -23,4 +23,5 @@ for(lazNameCurr in lazNameAll){
         lazOutlines <- rbind(lazOutlines,lassf["ID"])
     }
 }
+save(lazOutlines, file="Outlines.rda")
 cat("End script.\n")
