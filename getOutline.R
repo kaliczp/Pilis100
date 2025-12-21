@@ -8,7 +8,7 @@ lazNameAll <- dir(patt="laz$")
 for(lazNameCurr in lazNameAll){
     lasNameOnly <- gsub(".laz", "", lazNameCurr)
     cat("Processed laz file: ", lasNameOnly, "\n")
-    las <- readLAS(lazNameCurr, select = "xyz")
+    las <- readALS(lazNameCurr, select = "xyz")
     density <- rasterize_density(las, res = 10)
     reclass <- c(0, Inf, 1)
     reclass_m <- matrix(reclass, ncol = 3, byrow = TRUE)
