@@ -4,10 +4,10 @@ library(lidR)
 library(future)
 plan(multicore, workers = nothreads)
 set_lidr_threads(nothreads)
-opt_progress(ctg) <- FALSE
 cat("Configured lidR threads: ")
 get_lidr_threads()
 ctg <- readALScatalog("ori")
+opt_progress(ctg) <- FALSE
 st_crs(ctg) <- 23700
 opt_chunk_buffer(ctg) <- 0
 opt_chunk_size(ctg) <- 100
